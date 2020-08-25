@@ -21,8 +21,9 @@ String queryString = new QueryService().selectFields('Id, Name').fromObject(Acco
 A query with all fields retrieved can be further populated with fields from parent objects:
 
 ```apex
-List<Account> accounts = (List<Account>) new QueryService().selectAllFieldsFrom(Account.SObjectType)
-                                                           .addRelatedFields('CreatedBy.Name, CreatedBy.Profile.Name')
-                                                           .setLIMIT(10)
-                                                           .execute();
+List<Account> accounts = (List<Account>) new QueryService()
+                                           .selectAllFieldsFrom(Account.SObjectType)
+                                           .addRelatedFields('CreatedBy.Name, CreatedBy.Profile.Name')
+                                           .setLIMIT(10)
+                                           .execute();
 ```
